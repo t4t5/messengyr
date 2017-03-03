@@ -1,0 +1,3 @@
+<!-- lib/messengyr/web/templates/page/index.html.eex -->
+
+<p>Hello again <%= my_name %>!</p>
