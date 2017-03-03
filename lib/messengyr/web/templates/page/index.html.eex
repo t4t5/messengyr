@@ -1,3 +1,38 @@
 <!-- lib/messengyr/web/templates/page/index.html.eex -->
 
-<p>Hello again <%= my_name %>!</p>
+<div class="tagline">
+  <h1>Welcome to Messengyr!</h1>
+  <h2>A messenger clone built in Elixir + Phoenix</h2>
+</div>
+
+<div class="action-boxes">
+
+  <div class="card login">
+    <form>
+      <input placeholder="Username">
+      <input placeholder="Password">
+
+      <button type="submit" class="login">Log in</button>
+    </form>
+  </div>
+
+  <div class="card signup">
+    <h5>
+      <strong>
+        New to Messengyr?
+      </strong>
+
+      Sign up!
+    </h5>
+
+    <form>
+      <input placeholder="Email">
+      <input placeholder="Username">
+      <input placeholder="Password">
+
+      <button type="submit" class="signup">Sign up</button>
+    </form>
+
+  </div>
+
+</div>

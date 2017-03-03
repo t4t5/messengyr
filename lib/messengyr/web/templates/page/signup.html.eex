@@ -1,0 +1,13 @@
+<div class="card login">
+
+  <h1>Sign up for Messenger</h1>
+
+  <form>
+    <input placeholder="Email">
+    <input placeholder="Username">
+    <input placeholder="Password">
+
+    <button type="submit" class="signup">Sign up</button>
+  </form>
+
+</div>

@@ -1,0 +1,12 @@
+<div class="card login">
+
+  <h1>Log in to Messenger</h1>
+
+  <form>
+    <input placeholder="Username">
+    <input placeholder="Password">
+
+    <button type="submit" class="login">Log in</button>
+  </form>
+
+</div>

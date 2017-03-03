@@ -13,10 +13,17 @@
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
-  <body>
+  <body class=<%= @conn.path_info %>>
     <div class="container">
       
-      <h1>Hello world!</h1>
+      <!-- Add this header: -->
+      <header>
+          
+        <%= link "", class: "logo", to: page_path(@conn, :index) %>
+
+        <%= link "Log in", to: page_path(@conn, :login) %>
+
+      </header>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
