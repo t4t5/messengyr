@@ -8,12 +8,12 @@
 <div class="action-boxes">
 
   <div class="card login">
-    <form>
-      <input placeholder="Username">
-      <input placeholder="Password">
+    <%= form_for @conn, page_path(@conn, :login_user), [as: :credentials], fn f -> %>
+      <%= text_input f, :username, placeholder: "Username" %>
+      <%= text_input f, :password, placeholder: "Password", type: "password" %>
 
-      <button type="submit" class="login">Log in</button>
-    </form>
+      <%= submit "Log in", class: "login" %>
+    <% end %>
   </div>
 
   <div class="card signup">
@@ -25,13 +25,13 @@
       Sign up!
     </h5>
 
-    <form>
-      <input placeholder="Email">
-      <input placeholder="Username">
-      <input placeholder="Password">
+    <%= form_for @user_changeset, page_path(@conn, :create_user), fn f -> %>
+      <%= text_input f, :email, placeholder: "Email" %>
+      <%= text_input f, :username, placeholder: "Username" %>
+      <%= text_input f, :password, placeholder: "Password", type: "password" %>
 
-      <button type="submit" class="signup">Sign up</button>
-    </form>
+      <%= submit "Sign up", class: "signup" %>
+    <% end %>
 
   </div>
 

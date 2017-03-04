@@ -1,0 +1,21 @@
+<!-- lib/messengyr/web/templates/header.html.eex -->
+
+<header>
+
+  <%= link "", class: "logo", to: page_path(@conn, :index) %>
+
+  <%= if logged_in?(@conn) do %>
+
+    <!-- Add this line: -->
+    <%= link "Log out", to: page_path(@conn, :logout) %>
+
+    <div class="profile-container">
+      <img src=<%= avatar(@conn) %> /> <!-- Add this line! -->
+      <p><%= username(@conn) %></p>
+    </div>
+
+  <%= else %>
+    <%= link "Log in", to: page_path(@conn, :login) %>
+  <%= end %>
+
+</header>
