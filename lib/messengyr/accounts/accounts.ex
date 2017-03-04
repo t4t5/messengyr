@@ -7,10 +7,14 @@ defmodule Messengyr.Accounts do
   alias Messengyr.Repo
 
   def create_user(params) do
+    register_changeset(params)
+    |> Repo.insert
+  end
+
+  def register_changeset(params \\ %{}) do
     %User{}
     |> cast(params, [:username, :email, :password])
     |> validate_required([:username, :email, :password])
-    |> Repo.insert
   end
 
 end

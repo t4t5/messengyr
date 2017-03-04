@@ -1,3 +1,5 @@
+# lib/messengyr/web/router.ex
+
 defmodule Messengyr.Web.Router do
   use Messengyr.Web, :router
 
@@ -20,6 +22,8 @@ defmodule Messengyr.Web.Router do
     
     get "/signup", PageController, :signup
     get "/login", PageController, :login
+
+    post "/signup", PageController, :create_user
   end
 
   # Other scopes may use custom stacks.
