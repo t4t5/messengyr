@@ -1,12 +1,17 @@
+<!-- lib/messengyr/web/templates/login.html.eex -->
+
 <div class="card login">
 
   <h1>Log in to Messenger</h1>
 
-  <form>
-    <input placeholder="Username">
-    <input placeholder="Password">
+  <%= form_for @conn, page_path(@conn, :login_user), [as: :credentials], fn f -> %>
 
-    <button type="submit" class="login">Log in</button>
-  </form>
+    <%= text_input f, :username, placeholder: "Username" %>
+
+    <%= text_input f, :password, placeholder: "Password", type: "password" %>
+
+    <%= submit "Log in", class: "login" %>
+
+  <% end %>
 
 </div>

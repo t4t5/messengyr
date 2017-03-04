@@ -1,3 +1,5 @@
+# config/config.exs
+
 # This file is responsible for configuring your application
 # and its dependencies with the aid of the Mix.Config module.
 #
@@ -25,3 +27,11 @@ config :logger, :console,
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
+
+# Configures the Guardian library
+config :guardian, Guardian,
+  issuer: "Messengyr",
+  ttl: { 30, :days },
+  allowed_drift: 2000,
+  secret_key: "5ecret_k3y",
+  serializer: Messengyr.GuardianSerializer
