@@ -1,3 +1,5 @@
+// assets/brunch-config.js
+
 exports.config = {
   // See http://brunch.io/#documentation for docs.
   files: {
@@ -47,7 +49,8 @@ exports.config = {
   plugins: {
     babel: {
       // Do not use ES6 compiler in vendor code
-      ignore: [/vendor/]
+      ignore: [/vendor/],
+      presets: ["es2015", "react"], // Add this line!
     }
   },
 
@@ -58,6 +61,7 @@ exports.config = {
   },
 
   npm: {
-    enabled: true
+    enabled: true,
+    whitelist: ["react", "react-dom"], // Add this line
   }
 };

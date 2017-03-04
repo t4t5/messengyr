@@ -1,0 +1,5 @@
+<!-- lib/messengyr/web/templates/chat/index.html.eex -->
+
+<div id="app"></div> <!-- Add this line! -->
+
+<script src="<%= static_path(@conn, "/js/app.js") %>"></script>

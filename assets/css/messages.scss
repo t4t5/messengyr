@@ -1,0 +1,245 @@
+// assets/css/messages.scss
+
+#app {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 60px;
+  bottom: 0;
+  background-color: white;
+
+  .menu {
+    width: 330px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.77);
+    z-index: 3;
+    overflow-y: scroll;
+
+    .header {
+      box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.09);
+      height: 58px;
+      position: relative;
+      z-index: 2;
+
+      button.compose {
+        background-image: url("/images/compose-icon.svg");
+        background-color: transparent;
+        border: none;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+      }
+    }
+
+    h3 {
+      font-size: 17px;
+      font-weight: 500;
+      color: #545454;
+      letter-spacing: 0px;
+      text-align: center;
+      line-height: 58px;
+      margin: 0;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+
+      li {
+        box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.09);
+        padding: 13px;
+        min-height: 58px;
+        cursor: pointer;
+        &.active {
+          background-color: rgba(0, 0, 0, 0.04);
+        }
+
+        .profile-container {
+          display: inline-block;
+          width: calc(100% - 68px);
+          vertical-align: top;
+        }
+
+        img {
+          width: 53px;
+          height: 53px;
+          background-color: gray;
+          border-radius: 50%;
+          margin-right: 13px;
+        }
+
+        &.new {
+          .profile-container {
+            margin-top: 10px;
+          }
+          .avatar {
+            width: 53px;
+            height: 53px;
+            background-image: url("/images/empty-avatar.svg");
+            background-size: contain;
+            background-position: center center;
+            background-repeat: no-repeat;
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 13px;
+          }
+        }
+
+        .name {
+          display: inline-block;
+          margin: 0;
+          font-size: 16px;
+          color: #545454;
+          font-weight: 500;
+          margin-top: 8px;
+        }
+
+        p.message {
+          margin: 0;
+          font-size: 14px;
+          color: #878787;
+          max-width: 100%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          margin-top: 3px;
+        }
+
+        date {
+          font-size: 14px;
+          color: #3295F4;
+          letter-spacing: 0px;
+          float: right;
+        }
+      }
+    }
+  }
+
+  .chat {
+    position: absolute;
+    left: 330px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    .destination {
+      position: absolute;
+      left: 1px;
+      right: 0;
+      top: 0;
+      z-index: 3;
+      padding: 7px 15px;
+      box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.08);
+      background-color: rgba(255, 255, 255, 0.95);
+
+      label {
+        color: #676767;
+      }
+
+      input {
+        display: inline-block;
+        width: calc(100% - 50px);
+        margin-left: 8px;
+        box-shadow: none;
+        border: none;
+      }
+    }
+
+    .compose-box {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      box-shadow: 0px -1px 0px 0px rgba(0,0,0,0.14);
+      background-color: white;
+      padding: 3px 0;
+
+      input {
+        border: none;
+        box-shadow: none;
+        max-width: calc(100% - 100px);
+        font-weight: 300;
+        &:focus {
+          outline: none;
+          box-shadow: none;
+          border: none;
+        }
+      }
+
+      button {
+        border: none;
+        background: none;
+        font-size: 16px;
+        color: #3295F4;
+        margin: 0 auto;
+        width: 100px;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      position: absolute;
+      top: 0;
+      bottom: 44px;
+      right: 0;
+      left: 0;
+      overflow-y: scroll;
+      padding: 20px;
+
+      li {
+        margin: 28px 0;
+
+        p {
+          margin: 0;
+          background-color: #EEEEEE;
+          padding: 8px 13px;
+          border-radius: 18px;
+          font-size: 15px;
+          color: #505050;
+          line-height: 21px;
+          max-width: 376px;
+          display: inline-block;
+        }
+
+        img {
+          width: 35px;
+          height: 35px;
+          background-color: gray;
+          border-radius: 50%;
+          vertical-align: bottom;
+          margin-right: 13px;
+          position: relative;
+          bottom: -6px;
+        }
+
+        &.user {
+          text-align: right;
+
+          p {
+            text-align: left;
+            background-color: #2A93F7;
+            color: white;
+          }
+
+          img {
+            display: none;
+          }
+        }
+      }
+    }
+
+  }
+}
