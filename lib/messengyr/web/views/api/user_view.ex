@@ -9,7 +9,7 @@ defmodule Messengyr.Web.UserView do
     }
   end
 
-  defp user_json(user) do
+  def user_json(user) do
     hash_email = :crypto.hash(:md5, user.email) |> Base.encode16 |> String.downcase 
     avatar_url = "http://www.gravatar.com/avatar/#{hash_email}"
 

@@ -18,6 +18,9 @@ defmodule Messengyr.Web.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug :fetch_session
+    plug Guardian.Plug.VerifySession
+    plug Guardian.Plug.LoadResource
   end
 
   scope "/", Messengyr.Web do
@@ -39,5 +42,6 @@ defmodule Messengyr.Web.Router do
     pipe_through :api
 
     resources "/users", UserController, only: [:show]
+    resources "/rooms", RoomController
   end
 end
