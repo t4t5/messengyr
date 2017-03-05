@@ -34,4 +34,8 @@ class MenuContainer extends React.Component {
   }
 }
 
+MenuContainer.defaultProps = {
+  rooms: [],
+};
+
 export default MenuContainer;

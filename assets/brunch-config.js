@@ -50,7 +50,7 @@ exports.config = {
     babel: {
       // Do not use ES6 compiler in vendor code
       ignore: [/vendor/],
-      presets: ["es2015", "react"], // Add this line!
+      presets: ["es2015", "react"],
     }
   },
 
@@ -62,6 +62,6 @@ exports.config = {
 
   npm: {
     enabled: true,
-    whitelist: ["react", "react-dom"], // Add this line
+    whitelist: ["react", "react-dom", "whatwg-fetch", "moment"],
   }
 };

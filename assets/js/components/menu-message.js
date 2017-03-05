@@ -2,6 +2,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import moment from 'moment'; // Import moment...
 
 class MenuMessage extends React.Component {
   render() {
@@ -10,11 +11,11 @@ class MenuMessage extends React.Component {
 
     // Get the last element of the messages list:
     let lastMessage = room.messages.slice(-1)[0];
-    let sentAt = lastMessage.sentAt;
+    let sentAt = moment.utc(lastMessage.sentAt).fromNow(); // ...and use it here!
 
     return ( 
       <li>
-        <img className="avatar" />
+        <img className="avatar" src={counterpart.avatarURL} />
 
         <div className="profile-container">
           <p className="name">
