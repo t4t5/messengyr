@@ -7,6 +7,10 @@ defmodule Messengyr.Accounts do
   alias Messengyr.Accounts.User
   alias Messengyr.Repo
 
+  def get_user(user_id) do
+    Repo.get(User, user_id)
+  end
+
   def create_user(%{"password" => password} = params) do
     encrypted_password = Comeonin.Bcrypt.hashpwsalt(password)
 

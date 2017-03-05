@@ -1,3 +1,5 @@
+# lib/messengyr/web/views/error_view.ex
+
 defmodule Messengyr.Web.ErrorView do
   use Messengyr.Web, :view
 
@@ -7,6 +9,14 @@ defmodule Messengyr.Web.ErrorView do
 
   def render("500.html", _assigns) do
     "Internal server error"
+  end
+
+  def render("error.json", %{message: message }) do
+    %{
+      error: %{
+        message: message
+      }
+    }
   end
 
   # In case no render clause matches or no
