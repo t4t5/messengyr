@@ -2,6 +2,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
 
 import ChatMessage from './chat-message';
 
@@ -38,5 +39,19 @@ class ChatContainer extends React.Component {
 ChatContainer.defaultProps = {
   messages: [],
 };
+
+const mapStateToProps = (state) => {
+  let activeRoom = state.filter((room) => {
+    return room.isActive;
+  })[0];
+
+  return {
+    messages: (activeRoom) ? activeRoom.messages : [],
+  }
+};
+
+ChatContainer = connect(
+  mapStateToProps,
+)(ChatContainer);
 
 export default ChatContainer;

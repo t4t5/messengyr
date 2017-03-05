@@ -11,6 +11,8 @@
     "phoenix_html": "file:../deps/phoenix_html",
     "react": "15.4.2",
     "react-dom": "15.4.2",
+    "react-redux": "5.0.3",
+    "redux": "3.6.0",
     "whatwg-fetch": "2.0.3"
   },
   "devDependencies": {
