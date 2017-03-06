@@ -1,0 +1,199 @@
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.15.0">
+    <title>Messengyr.Web.UserSocket – messengyr v0.0.1</title>
+    <link rel="stylesheet" href="dist/app-f7824c48e6.css" />
+    
+    <script src="dist/sidebar_items-22d7aa3f9b.js"></script>
+  </head>
+  <body data-type="modules">
+    <script>if(localStorage.getItem('night-mode')) document.body.className += ' night-mode';</script>
+
+    <div class="main">
+<button class="sidebar-toggle">
+  <i class="icon-menu"></i>
+</button>
+<section class="sidebar">
+
+  
+  <a href="api-reference.html" class="sidebar-projectLink">
+    <div class="sidebar-projectDetails">
+      <h1 class="sidebar-projectName">
+        messengyr
+      </h1>
+      <h2 class="sidebar-projectVersion">
+        v0.0.1
+      </h2>
+    </div>
+    
+  </a>
+
+  <div class="sidebar-search">
+    <i class="icon-search"></i>
+    <input type="text" class="sidebar-searchInput" placeholder="search" autocomplete="off" />
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+    
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+    
+
+    
+
+    
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+
+      <h1>
+        <small class="visible-xs">messengyr v0.0.1</small>
+        Messengyr.Web.UserSocket
+        
+        
+      </h1>
+
+      
+
+      
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <i class="icon-link"></i>
+            </a>
+            Summary
+          </h1>
+          
+
+          
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+    <div class="summary-row">
+  <div class="summary-signature">
+    <a href="#connect/2">connect(arg1, socket)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Receives the socket params and authenticates the connection</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#id/1">id(socket)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Identifies the socket connection</p>
+</div>
+  
+</div>
+
+  </div>
+
+
+          
+
+        </section>
+      
+
+      
+
+      
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <i class="icon-link"></i>
+            </a>
+            Functions
+          </h1>
+          <div class="detail" id="connect/2">
+  
+  <div class="detail-header">
+    <a href="#connect/2" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">connect(arg1, socket)</span>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Receives the socket params and authenticates the connection.</p>
+<h2 id="connect/2-socket-params-and-assigns" class="section-heading">
+  <a href="#connect/2-socket-params-and-assigns" class="hover-link"><i class="icon-link"></i></a>
+  Socket params and assigns
+</h2>
+
+<p>Socket params are passed from the client and can
+be used to verify and authenticate a user. After
+verification, you can put default assigns into
+the socket that will be set for all channels, ie</p>
+<pre><code class="elixir">{:ok, assign(socket, :user_id, verified_user_id)}</code></pre>
+<p>To deny connection, return <code class="inline">:error</code>.</p>
+<p>See <a href="https://hexdocs.pm/phoenix/1.3.0-rc.0/Phoenix.Token.html"><code class="inline">Phoenix.Token</code></a> documentation for examples in
+performing token verification on connect.</p>
+<p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.3.0-rc.0/Phoenix.Socket.html#c:connect/2"><code class="inline">Phoenix.Socket.connect/2</code></a>.</p>
+
+  </section>
+</div>
+<div class="detail" id="id/1">
+  
+  <div class="detail-header">
+    <a href="#id/1" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">id(socket)</span>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Identifies the socket connection.</p>
+<p>Socket IDs are topics that allow you to identify all sockets for a given user:</p>
+<pre><code class="elixir">def id(socket), do: &quot;users_socket:#{socket.assigns.user_id}&quot;</code></pre>
+<p>Would allow you to broadcast a “disconnect” event and terminate
+all active sockets and channels for a given user:</p>
+<pre><code class="elixir">MyApp.Endpoint.broadcast(&quot;users_socket:&quot; &lt;&gt; user.id, &quot;disconnect&quot;, %{})</code></pre>
+<p>Returning <code class="inline">nil</code> makes this socket anonymous.</p>
+<p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.3.0-rc.0/Phoenix.Socket.html#c:id/1"><code class="inline">Phoenix.Socket.id/1</code></a>.</p>
+
+  </section>
+</div>
+
+        </section>
+      
+
+      
+          <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" rel="help" target="_blank">ExDoc</a> (v0.15.0),
+          </span>
+          <span class="line">
+            designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            </span>
+        </p>
+        <button class="night-mode-toggle" />
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  <script src="dist/app-372682077e.js"></script>
+  </body>
+</html>
+

@@ -1,6 +1,11 @@
 # lib/messengyr/web/controllers/chat_controller.ex
 
 defmodule Messengyr.Web.ChatController do
+  @moduledoc """
+  The controller for the Messaging page, 
+  available only for logged-in users
+  """
+
   use Messengyr.Web, :controller
 
   # Add this line:

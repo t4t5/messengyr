@@ -40,7 +40,8 @@ defmodule Messengyr.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:comeonin, "~> 3.0"},
-     {:guardian, "~> 0.14"}] # Add this line!
+     {:guardian, "~> 0.14"},
+     {:ex_doc, "~> 0.14", only: :dev}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
