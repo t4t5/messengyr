@@ -13,3 +13,10 @@ export function selectRoom(roomId) {
     roomId,
   }
 };
+
+export function addRoom(room) {
+  return {
+    type: "ADD_ROOM",
+    room,
+  }
+};

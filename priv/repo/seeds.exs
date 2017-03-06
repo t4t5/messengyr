@@ -17,10 +17,10 @@ me = Repo.one(User)
 })
 
 # Add myself as a room_user:
-Chat.add_room_user(%{room: room, user: me})
+Chat.add_room_user(room, me)
 
 # Add the counterpart as a room_user:
-Chat.add_room_user(%{room: room, user: counterpart})
+Chat.add_room_user(room, counterpart)
 
 # Add a message in the room:
 Chat.add_message(%{

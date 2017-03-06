@@ -24,6 +24,12 @@ const rooms = (state = [], action) => {
         return room(r, action);
       });
 
+    case "ADD_ROOM":
+      return [
+        action.room,
+        ...state,
+      ];
+
     default:
       return state;
   }
