@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 import MenuMessage from './menu-message';
 
-import { setRooms, selectRoom, addRoom } from '../actions';
+import { setRooms, selectRoom, addRoom, addMessage } from '../actions';
 
 import socket from "../socket";
 
@@ -24,8 +24,6 @@ let getRoomChannel = (roomId) => {
   return channel;
 }
 
-getRoomChannel(999);
-
 class MenuContainer extends React.Component {
 
   componentDidMount() {
@@ -40,12 +38,11 @@ class MenuContainer extends React.Component {
     .then((response) => {
       let rooms = response.rooms;
 
-      // Get the room channel for each room...
       rooms.forEach((room) => {
         room.channel = getRoomChannel(room.id);
+        this.listenToNewMessages(room);
       });
 
-      // ... then add the rooms to the Redux store:
       this.props.setRooms(rooms);
 
       let firstRoom = rooms[0];
@@ -56,6 +53,32 @@ class MenuContainer extends React.Component {
     })
     .catch((err) => {
       console.error(err);
+    });
+  }
+  
+  getNewMessage(room, messageId) {
+    fetch(`/api/messages/${messageId}`, {
+      headers: {
+        "Authorization": "Bearer " + window.jwtToken,
+      },
+    })
+    .then((response) => {
+      return response.json();
+    })
+    .then((response) => {
+      // Call the "addMessage" action:
+      this.props.addMessage(response.message, room.id);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+  }
+
+  listenToNewMessages(room) {
+    room.channel.on('message:new', resp => {
+      let messageId = resp.messageId;
+
+      this.getNewMessage(room, messageId);
     });
   }
 
@@ -86,6 +109,7 @@ class MenuContainer extends React.Component {
   }
 
   render() {
+
     let getRoomDate = (room) => {
       let date;
 
@@ -147,6 +171,7 @@ const mapDispatchToProps = {
   setRooms,
   selectRoom,
   addRoom,
+  addMessage, // Add this line!
 };
 
 MenuContainer = connect(

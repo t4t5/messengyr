@@ -3,7 +3,12 @@
 defmodule Messengyr.Web.MessageView do
   use Messengyr.Web, :view
 
-  # Use outgoing?/2 here...
+  def render("show.json", %{message: message, me: me}) do
+    %{
+      message: message_json(message, %{me: me})
+    }
+  end
+
   def message_json(message, %{me: me}) do
     %{
       id: message.id,
@@ -13,7 +18,6 @@ defmodule Messengyr.Web.MessageView do
     }
   end
 
-  # ...and add the function:
   defp outgoing?(message, me) do
     message.user_id == me.id
   end

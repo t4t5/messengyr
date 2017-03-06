@@ -76,6 +76,10 @@ defmodule Messengyr.Chat do
     Repo.insert(room_user)
   end
 
+  def get_message(id) do
+    Repo.get(Message, id) |> Repo.preload(:room)
+  end
+
   def add_message(%{room: room, user: user, text: text}) do
     message = %Message{
       room: room,

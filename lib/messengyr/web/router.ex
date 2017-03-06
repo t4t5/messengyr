@@ -42,5 +42,6 @@ defmodule Messengyr.Web.Router do
 
     resources "/users", UserController, only: [:show]
     resources "/rooms", RoomController
+    resources "/messages", MessageController, only: [:show]
   end
 end
