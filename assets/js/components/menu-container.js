@@ -8,6 +8,24 @@ import MenuMessage from './menu-message';
 
 import { setRooms, selectRoom, addRoom } from '../actions';
 
+import socket from "../socket";
+
+let getRoomChannel = (roomId) => {
+  let channel = socket.channel(`room:${roomId}`);
+
+  channel.join()
+  .receive("ok", resp => {
+    console.info(`Joined room ${roomId} successfully`, resp)
+  })
+  .receive("error", resp => {
+    console.error(`Unable to join ${roomId}`, resp)
+  });
+
+  return channel;
+}
+
+getRoomChannel(999);
+
 class MenuContainer extends React.Component {
 
   componentDidMount() {
@@ -21,6 +39,13 @@ class MenuContainer extends React.Component {
     })
     .then((response) => {
       let rooms = response.rooms;
+
+      // Get the room channel for each room...
+      rooms.forEach((room) => {
+        room.channel = getRoomChannel(room.id);
+      });
+
+      // ... then add the rooms to the Redux store:
       this.props.setRooms(rooms);
 
       let firstRoom = rooms[0];

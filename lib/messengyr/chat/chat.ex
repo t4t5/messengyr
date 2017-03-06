@@ -8,6 +8,10 @@ defmodule Messengyr.Chat do
 
   import Ecto.Query
 
+  def get_room(id) do
+    Repo.get(Room, id)
+  end
+
   def list_user_rooms(user) do
     query = from r in Room,
       join: u in assoc(r, :users),
@@ -27,6 +31,19 @@ defmodule Messengyr.Chat do
   def create_room() do
     room = %Room{}  
     Repo.insert(room)
+  end
+
+  def room_has_user?(room, user) do
+    # Find a row in the "room_users" table that contains
+    # the room.id and user.id
+    query = from ru in RoomUser,
+      where: ru.room_id == ^room.id and ru.user_id == ^user.id
+
+    # If a room was found, return true!
+    case Repo.one(query) do
+      %RoomUser{} -> true
+      _ -> false
+    end
   end
 
   def create_room_with_counterpart(me, counterpart_username) do
