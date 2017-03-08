@@ -83,7 +83,7 @@ class MenuContainer extends React.Component {
   }
 
   createRoom() {
-    let username = prompt("Enter a username");
+    let username = prompt("Enter a username", "tristan");
 
     let data = new FormData();
     data.append("counterpartUsername", username);
@@ -105,6 +105,7 @@ class MenuContainer extends React.Component {
     })
     .catch((err) => {
       console.error(err);
+      alert("This user could not be found!");
     });
   }
 
