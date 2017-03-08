@@ -18,7 +18,7 @@ config :messengyr, Messengyr.Web.Endpoint,
   root: ".",
   server: true,
   # Make sure your change the URL to your app's URL:
-  url: [scheme: "https", host: "YOUR-APP-NAME.herokuapp.com", port: 443],
+  url: [scheme: "https", host: "messengyr.herokuapp.com", port: 443],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/manifest.json",
   secret_key_base: System.get_env("SECRET_KEY_BASE")
